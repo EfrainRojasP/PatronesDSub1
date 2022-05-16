@@ -14,6 +14,7 @@ public class Seccion {
    private String nombre;
    private int numPalabras;
    private String texto;
+   private boolean cumplido;
 
    public Seccion(int id) {
       this(id, "NO DEFINIDA");
@@ -66,12 +67,21 @@ public class Seccion {
       this.texto = texto;
    }
 
+   public boolean isCumplido() {
+      return cumplido;
+   }
+
+   public void setCumplido(boolean cumplido) {
+      this.cumplido = cumplido;
+   }
+   
    @Override
    public String toString() {
       return "Seccion{" + "id=" + id
               + ",\nnombre=" + nombre
               + ",\nnumPalabras=" + numPalabras
-              + ",\ntexto=" + texto + '}' + "\n";
+              + ",\ntexto=" + texto  
+              + ",\ncumplido=" + cumplido + '}' + "\n";
    }
 
 }
