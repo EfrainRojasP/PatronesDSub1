@@ -71,7 +71,7 @@ public class Seccion {
       return "Seccion{" + "id=" + id
               + ",\nnombre=" + nombre
               + ",\nnumPalabras=" + numPalabras
-              + ",\ntexto=" + texto + '}';
+              + ",\ntexto=" + texto + '}' + "\n";
    }
 
 }
