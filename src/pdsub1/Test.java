@@ -4,6 +4,8 @@
  */
 package pdsub1;
 
+import pd.FormatoPDF;
+
 /**
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
@@ -15,6 +17,9 @@ public class Test {
     */
    public static void main(String[] args) {
       System.out.println("Hola mundo");
+      FormatoPDF p = new FormatoPDF("holin2.pdf");
+      p.leerFormato();
+      p.array();
    }
    
 }
