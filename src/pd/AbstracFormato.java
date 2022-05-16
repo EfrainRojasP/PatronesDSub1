@@ -4,10 +4,14 @@
  */
 package pd;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class AbstracFormato {
-   
+interface AbstracFormato {
+   public ArrayList<Seccion> leerFormato();
+   public ArrayList<Seccion> getFormatoSeccion();
+   public void setFormatoSeccion(ArrayList<Seccion> formatoSeccion);
 }
