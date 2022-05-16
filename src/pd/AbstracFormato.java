@@ -12,6 +12,6 @@ import java.util.ArrayList;
  */
 interface AbstracFormato {
    public ArrayList<Seccion> leerFormato();
-   public ArrayList<Seccion> getFormatoSeccion();
-   public void setFormatoSeccion(ArrayList<Seccion> formatoSeccion);
+   public ArrayList<Seccion> getBookmarkSeccion();
+   public void setBookmarkSeccion(ArrayList<Seccion> formatoSeccion);
 }

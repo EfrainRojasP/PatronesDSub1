@@ -69,10 +69,6 @@ public class FormatoPDF implements AbstracFormato {
       this.bookmarkSeccion = bookmarkSeccion;
    }
 
-   @Override
-   public void getBookmarks() {
-      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   }
 
    public void array(){
       System.out.println(" " + bookmarkSeccion.toString());
