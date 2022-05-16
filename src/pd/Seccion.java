@@ -9,5 +9,11 @@ package pd;
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
 public class Seccion {
+
+   private int id;
+   private String nombre;
+   private int numPalabras;
+   private String texto;
+   
    
 }
