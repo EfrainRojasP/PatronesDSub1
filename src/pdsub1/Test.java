@@ -4,7 +4,11 @@
  */
 package pdsub1;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import pd.FormatoPDF;
+import pd.ProductoPDF;
+import pd.Seccion;
 
 /**
  *
@@ -15,11 +19,24 @@ public class Test {
    /**
     * @param args the command line arguments
     */
-   public static void main(String[] args) {
+   public static void main(String[] args) throws IOException {
       System.out.println("Hola mundo");
-      FormatoPDF p = new FormatoPDF("holin2.pdf");
+      FormatoPDF p = new FormatoPDF("Formato.pdf");
       p.leerFormato();
       p.array();
+      
+      ProductoPDF ppdf = new ProductoPDF("PA.pdf", p.getBookmarkSeccion());
+      ppdf.leerPA();
+      ppdf.construirSecciones();
+      //System.out.println(p.getBookmarkSeccion());
+      //p.getBookmarkSeccion().get(0).setTexto("smdfosndfnsdiofn spodpsoado sdksapod");
+      ArrayList<Seccion> s = p.getBookmarkSeccion();
+      for (Seccion seccion : s){
+         if(seccion.isCumplido()){
+            System.out.println(seccion.getNombre());
+         }
+      }
+      
    }
    
 }
