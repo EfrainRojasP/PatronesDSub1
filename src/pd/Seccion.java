@@ -21,15 +21,18 @@ public class Seccion {
    }
 
    public Seccion(int id, String nombre) {
-      this(id, nombre, 0, "");
+      this(id, nombre, 0, "", false);
    }
 
-   public Seccion(int id, String nombre, int numPalabras, String texto) {
+   public Seccion(int id, String nombre, int numPalabras, String texto, boolean cumplido) {
       this.id = id;
       this.nombre = nombre;
       this.numPalabras = numPalabras;
       this.texto = texto;
+      this.cumplido = cumplido;
    }
+
+   
 
    public Seccion() {
 
