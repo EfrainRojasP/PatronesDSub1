@@ -7,7 +7,10 @@ package pdsub1;
 import java.io.IOException;
 import java.util.ArrayList;
 import pd.FormatoPDF;
+import pd.FormatoWord;
 import pd.ProductoPDF;
+import pd.ProductoWord;
+import pd.ReportePDF;
 import pd.Seccion;
 
 /**
@@ -21,6 +24,8 @@ public class Test {
     */
    public static void main(String[] args) throws IOException {
       System.out.println("Hola mundo");
+      /* 
+      //PDF
       FormatoPDF p = new FormatoPDF("Formato.pdf");
       p.leerFormato();
       p.array();
@@ -28,15 +33,31 @@ public class Test {
       ProductoPDF ppdf = new ProductoPDF("PA.pdf", p.getBookmarkSeccion());
       ppdf.leerPA();
       ppdf.construirSecciones();
-      //System.out.println(p.getBookmarkSeccion());
-      //p.getBookmarkSeccion().get(0).setTexto("smdfosndfnsdiofn spodpsoado sdksapod");
-      ArrayList<Seccion> s = p.getBookmarkSeccion();
+      
+      ArrayList<Seccion> s = ppdf.getBookmarkSeccionFormato();
       for (Seccion seccion : s){
          if(seccion.isCumplido()){
             System.out.println(seccion.getNombre());
          }
       }
       
+      ReportePDF reportePDF = new ReportePDF(ppdf.getBookmarkSeccionFormato());
+      reportePDF.construirReporte();
+       */
+
+      //WORD
+      FormatoWord formatoWord = new FormatoWord("Formato.docx");
+      formatoWord.leerFormato();
+      System.out.println(formatoWord.getBookmarkSeccion());
+
+      ProductoWord productoWord = new ProductoWord("holin2.docx", formatoWord.getBookmarkSeccion());
+      productoWord.leerPA();
+      productoWord.construirSecciones();
+      System.out.println(productoWord.getBookmarkSeccionFormato());
+
+      ReportePDF rpdf = new ReportePDF(productoWord.getBookmarkSeccionFormato());
+      rpdf.construirReporte();
+
    }
-   
+
 }
