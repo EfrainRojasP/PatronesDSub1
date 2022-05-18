@@ -21,6 +21,9 @@ public class FormatoPDF extends AbstractFormato {
 
    private int id;
 
+   public FormatoPDF() {
+   }
+   
    public FormatoPDF(String nombreFormato) {
       this.nombreFormato = nombreFormato;
       bookmarkSeccion = new ArrayList<>();
