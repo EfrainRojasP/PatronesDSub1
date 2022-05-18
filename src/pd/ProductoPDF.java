@@ -22,6 +22,9 @@ import org.apache.pdfbox.text.PDFTextStripper;
  */
 public class ProductoPDF extends AbstractProductoAcademico{
 
+   public ProductoPDF() {
+   }
+   
    public ProductoPDF(String nombrePA, ArrayList<Seccion> bookmarkSeccionFormato) {
       this.nombrePA = nombrePA;
       this.bookmarkSeccionFormato = bookmarkSeccionFormato;
