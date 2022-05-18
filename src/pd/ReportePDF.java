@@ -22,8 +22,7 @@ public class ReportePDF implements AbstractRepote{
    private ArrayList<Seccion> seccionPA;
    private String nombrePA;
 
-   public ReportePDF(ArrayList<Seccion> seccionPA) {
-      this.seccionPA = seccionPA;
+   public ReportePDF() {
    }
 
    public ReportePDF(ArrayList<Seccion> seccionPA, String nombrePA) {
