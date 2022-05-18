@@ -29,8 +29,10 @@ public class ConstruirReporte {
    
    
    public void generarRorte(){
-      managerFormato = new ManagerFormato(nombreFormato);
-      managerPA = new ManagerProductoAcademico(nombrePA);
+      String rutaFormato = "./".concat(nombreFormato);
+      String rutaPA = "./".concat(nombrePA);
+      managerFormato = new ManagerFormato(rutaFormato);
+      managerPA = new ManagerProductoAcademico(rutaPA);
       if(isPDFFormato){
          managerFormato.leerFormatoPDF();
       } else {
