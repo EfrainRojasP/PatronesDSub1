@@ -17,12 +17,11 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    /**
     * Creates new form GUI_subirArchivos
     */
-   
    String rutaPA = "";
    String rutaFormato = "";
    String nombrePA = "";
    String nombreFormato = "";
-   
+
    public GUI_subirArchivos() {
       initComponents();
    }
@@ -186,14 +185,17 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
       System.out.println("NF: " + nombreFormato + " " + "NPA: " + nombrePA);
       System.out.println("RF: " + rutaFormato + " " + "RPA: " + rutaPA);
       System.out.println("NF: " + nombreFormato.length() + " " + "NPA: " + nombrePA.length());
-      if(nombreFormato.length() == 0 &&  nombrePA.length() == 0){
+      if (nombreFormato.length() == 0 && nombrePA.length() == 0) {
          JOptionPane.showMessageDialog(null, "No se seleciono ningun archivo");
-      } else if (nombreFormato.length() == 0 ){
+      } else if (nombreFormato.length() == 0) {
          JOptionPane.showMessageDialog(null, "No se seleciono el formato");
-      } else if (nombrePA.length() == 0){
+      } else if (nombrePA.length() == 0) {
          JOptionPane.showMessageDialog(null, "No se seleciono el producto academico");
       } else {
-         JOptionPane.showMessageDialog(null, "Hola :D");
+         GUI_DescargarArchivo dA = new GUI_DescargarArchivo();
+         dA.setVisible(true);
+         this.dispose();
+         //JOptionPane.showMessageDialog(null, "Hola :D");
       }
    }//GEN-LAST:event_btnAnalizarActionPerformed
 
