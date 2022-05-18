@@ -128,16 +128,16 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
       FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos pdf y docx", "pdf", "docx");
       //Le pasamos el filtro
       jFileChooser.setFileFilter(filter);
-      
+
       int respuesta = jFileChooser.showOpenDialog(this);
-      if(respuesta == JFileChooser.APPROVE_OPTION){
+      if (respuesta == JFileChooser.APPROVE_OPTION) {
          //Nombre del archivo
          nombreFormato = jFileChooser.getSelectedFile().getName();
-         if(nombreFormato.lastIndexOf(".pdf") > 0 || nombreFormato.lastIndexOf(".docx") > 0){
+         if (nombreFormato.lastIndexOf(".pdf") > 0 || nombreFormato.lastIndexOf(".docx") > 0) {
             //Ruta del archivo
             ruta = jFileChooser.getSelectedFile().getPath();
             lblNomF.setText(nombreFormato);
-         }  else {
+         } else {
             nombreFormato = "";
             lblNomF.setText("");
             JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
@@ -147,6 +147,29 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
 
    private void btnSlectArchPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlectArchPAActionPerformed
       // TODO add your handling code here:
+      String ruta = "";
+      String nombrePA = "";
+      //Creamos un JFileChooser para seleccion un archivo
+      JFileChooser jFileChooser = new JFileChooser();
+      //Creamos un filtro para que solo nos muestre archivos .pdf y .docx
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos pdf y docx", "pdf", "docx");
+      //Le pasamos el filtro
+      jFileChooser.setFileFilter(filter);
+
+      int respuesta = jFileChooser.showOpenDialog(this);
+      if (respuesta == JFileChooser.APPROVE_OPTION) {
+         //Nombre del archivo
+         nombrePA = jFileChooser.getSelectedFile().getName();
+         if (nombrePA.lastIndexOf(".pdf") > 0 || nombrePA.lastIndexOf(".docx") > 0) {
+            //Ruta del archivo
+            ruta = jFileChooser.getSelectedFile().getPath();
+            lblNomPA.setText(nombrePA);
+         } else {
+            nombrePA = "";
+            lblNomF.setText("");
+            JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
+         }
+      }
    }//GEN-LAST:event_btnSlectArchPAActionPerformed
 
    /**
