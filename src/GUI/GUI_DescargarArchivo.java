@@ -4,7 +4,11 @@
  */
 package GUI;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 
 /**
@@ -25,7 +29,6 @@ public class GUI_DescargarArchivo extends javax.swing.JFrame {
    }
 
    public void nombreReporte(){
-      System.out.println("sdhiaiosdhasio");
       GUI_subirArchivos sA = new GUI_subirArchivos();
       lblNombreReporte.setText(GUI_subirArchivos.nombreReporte);
    }
@@ -49,9 +52,15 @@ public class GUI_DescargarArchivo extends javax.swing.JFrame {
 
       jLabel1.setText("APALizer");
 
+      lblNombreReporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
       lblNombreReporte.setText("dsddddddddddddddddd");
 
       btnGuardar.setText("Guardar");
+      btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnGuardarActionPerformed(evt);
+         }
+      });
 
       btnCarpeta.setText("Seleccionar Carpeta");
       btnCarpeta.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +69,7 @@ public class GUI_DescargarArchivo extends javax.swing.JFrame {
          }
       });
 
+      lblNomCarpeta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
       lblNomCarpeta.setText("dsdsdsdsdsd");
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -68,21 +78,23 @@ public class GUI_DescargarArchivo extends javax.swing.JFrame {
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-               .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                  .addComponent(btnCarpeta)
-                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jLabel1))
-                     .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(lblNombreReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                .addGroup(layout.createSequentialGroup()
                   .addGap(139, 139, 139)
-                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(lblNomCarpeta, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(btnGuardar))))
-            .addContainerGap(152, Short.MAX_VALUE))
+                  .addComponent(btnGuardar)
+                  .addGap(18, 180, Short.MAX_VALUE))
+               .addGroup(layout.createSequentialGroup()
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                     .addComponent(btnCarpeta)
+                     .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel1)
+                        .addGap(33, 33, 33)))
+                  .addGap(0, 0, Short.MAX_VALUE))
+               .addComponent(lblNombreReporte, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addGroup(layout.createSequentialGroup()
+                  .addContainerGap()
+                  .addComponent(lblNomCarpeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addContainerGap())
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +127,22 @@ public class GUI_DescargarArchivo extends javax.swing.JFrame {
       
       if(respuesta == JFileChooser.APPROVE_OPTION){
          lblNomCarpeta.setText(jFileChooser.getSelectedFile().getAbsolutePath());
+         System.out.println(jFileChooser.getSelectedFile().getPath());
       }
       
    }//GEN-LAST:event_btnCarpetaActionPerformed
+
+   private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+      // TODO add your handling code here:
+      String ruta = lblNomCarpeta.getText();
+      GUI_subirArchivos sA = new GUI_subirArchivos();
+      if(ruta.isEmpty()){
+         JOptionPane.showMessageDialog(null, "Seleccione una carpeta para guardar el reporte");
+      } else {
+         GUI_subirArchivos.construirReporte.setRuta(ruta);
+         GUI_subirArchivos.construirReporte.generarRorte();
+      }
+   }//GEN-LAST:event_btnGuardarActionPerformed
 
    /**
     * @param args the command line arguments

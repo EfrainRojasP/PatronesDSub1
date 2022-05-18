@@ -27,40 +27,16 @@ public class ConstruirReporte {
       
    }
   
-   
-   
    public void generarRorte(){
-      String rutaFormato = "./".concat(nombreFormato);
-      String rutaPA = "./".concat(nombrePA);
-      managerFormato = new ManagerFormato(rutaFormato);
-      managerPA = new ManagerProductoAcademico(rutaPA);
-      if(isPDFFormato){
-         managerFormato.leerFormatoPDF();
-      } else {
-         managerFormato.leerFormatoWord();
-      }
-      
-      if(isPDFFormato == true && isPDFPA == true){
-         managerPA.
-                 leerProductoAcademicoPDF(managerFormato.getBookMarksPDF());
-         //generarReporteAPartirPDF();
-      } else if(isPDFFormato == false && isPDFPA == true){
-         managerPA.
-                 leerProductoAcademicoPDF(managerFormato.getBookMarksWord());
-         //generarReporteAPartirPDF();
-      } else if(isPDFFormato == true && isPDFPA == false){
-         managerPA.
-                 leerProductoAcademicoWord(managerFormato.getBookMarksPDF());
-         //generarReporteAPartirWord();
-      } else if (isPDFFormato == false && isPDFPA == false){
-         managerPA
-                 .leerProductoAcademicoWord(managerFormato.getBookMarksWord());
-         //generarReporteAPartirWord();
-      }
+     if(isPDFPA){
+        generarReporteAPartirPDF();
+     } else {
+        generarReporteAPartirWord();
+     }
    }
 
    
-   private void analizarPA(){
+   public void analizarPA(){
       String rutaFormato = "./".concat(nombreFormato);
       String rutaPA = "./".concat(nombrePA);
       managerFormato = new ManagerFormato(rutaFormato);

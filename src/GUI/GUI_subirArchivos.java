@@ -24,10 +24,10 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    String nombreFormato = "";
    public static String nombreReporte = "";
    
-   boolean isPDFF;
-   boolean isPDFPA;
+   public static boolean isPDFF;
+   public static boolean isPDFPA;
 
-   ConstruirReporte construirReporte;
+   public static ConstruirReporte construirReporte;
    
    public GUI_subirArchivos() {
       initComponents();
@@ -207,13 +207,13 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          construirReporte.setNombreFormato(nombreFormato);
          construirReporte.setIsPDFPA(isPDFPA);
          construirReporte.setNombrePA(nombrePA);
-         
          nombreReporte = construirReporte.nombreReporte();
-         System.out.println(nombreReporte);
+         construirReporte.analizarPA();
+
+         //System.out.println(construirReporte.getNombreReporte());
          GUI_DescargarArchivo dA = new GUI_DescargarArchivo();
          dA.setVisible(true);
          this.dispose();
-         //JOptionPane.showMessageDialog(null, "Hola :D");
       }
    }//GEN-LAST:event_btnAnalizarActionPerformed
 
