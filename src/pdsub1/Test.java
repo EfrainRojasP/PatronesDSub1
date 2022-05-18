@@ -116,12 +116,19 @@ public class Test {
       rpdf1.construirReporte();*/
       
       //COnstruir reporte
-      ConstruirReporte cr = new ConstruirReporte();
+      /*ConstruirReporte cr = new ConstruirReporte();
       cr.setIsPDFFormato(true);
       cr.setNombreFormato("holin2.pdf");
       cr.setIsPDFPA(false);
       cr.setNombrePA("PA.docx");
-      cr.generarRorte();
+      cr.generarRorte();*/
+      
+      ConstruirReporte cr1 = new ConstruirReporte();
+      cr1.setIsPDFFormato(false);
+      cr1.setNombreFormato("Formato.docx");
+      cr1.setIsPDFPA(false);
+      cr1.setNombrePA("PA.docx");
+      cr1.generarRorte();
       
       
    }
