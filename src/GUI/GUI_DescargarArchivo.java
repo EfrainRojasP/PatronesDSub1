@@ -16,10 +16,20 @@ public class GUI_DescargarArchivo extends javax.swing.JFrame {
    /**
     * Creates new form GUI_DescargarArchivo
     */
+   
+   //private GUI_subirArchivos sA = new GUI_subirArchivos();
+   
    public GUI_DescargarArchivo() {
       initComponents();
+      nombreReporte();
    }
 
+   public void nombreReporte(){
+      System.out.println("sdhiaiosdhasio");
+      GUI_subirArchivos sA = new GUI_subirArchivos();
+      lblNombreReporte.setText(GUI_subirArchivos.nombreReporte);
+   }
+   
    /**
     * This method is called from within the constructor to initialize the form.
     * WARNING: Do NOT modify this code. The content of this method is always
