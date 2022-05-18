@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
@@ -26,21 +30,124 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
+      jLabel1 = new javax.swing.JLabel();
+      jLabel2 = new javax.swing.JLabel();
+      jLabel3 = new javax.swing.JLabel();
+      btnAnalizar = new javax.swing.JButton();
+      btnSlectArchFormato = new javax.swing.JButton();
+      btnSlectArchPA = new javax.swing.JButton();
+      lblNomF = new javax.swing.JLabel();
+      lblNomPA = new javax.swing.JLabel();
+
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+      jLabel1.setText("APALizer");
+
+      jLabel2.setText("Formato:");
+
+      jLabel3.setText("Producto academico:");
+
+      btnAnalizar.setText("Analizar");
+
+      btnSlectArchFormato.setText("Seleccionar Archivo");
+      btnSlectArchFormato.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSlectArchFormatoActionPerformed(evt);
+         }
+      });
+
+      btnSlectArchPA.setText("Seleccionar Archivo");
+      btnSlectArchPA.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSlectArchPAActionPerformed(evt);
+         }
+      });
+
+      lblNomF.setText("Seleccione un arhivo pdf o docx");
+
+      lblNomPA.setText("Seleccione un arhivo pdf o docx");
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
       getContentPane().setLayout(layout);
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addGap(0, 400, Short.MAX_VALUE)
+         .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(220, 220, 220)
+                  .addComponent(jLabel1))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(64, 64, 64)
+                  .addComponent(jLabel2)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(lblNomF, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addGroup(layout.createSequentialGroup()
+                  .addGap(203, 203, 203)
+                  .addComponent(btnAnalizar))
+               .addGroup(layout.createSequentialGroup()
+                  .addContainerGap()
+                  .addComponent(jLabel3)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(lblNomPA, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(14, 14, 14)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(btnSlectArchFormato)
+               .addComponent(btnSlectArchPA))
+            .addContainerGap(46, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addGap(0, 300, Short.MAX_VALUE)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel1)
+            .addGap(27, 27, 27)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(jLabel2)
+               .addComponent(btnSlectArchFormato)
+               .addComponent(lblNomF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(34, 34, 34)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(jLabel3)
+               .addComponent(btnSlectArchPA)
+               .addComponent(lblNomPA, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+            .addComponent(btnAnalizar)
+            .addGap(60, 60, 60))
       );
 
       pack();
    }// </editor-fold>//GEN-END:initComponents
+
+   private void btnSlectArchFormatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlectArchFormatoActionPerformed
+      // TODO add your handling code here:
+      String ruta = "";
+      String nombreFormato = "";
+      //Creamos un JFileChooser para seleccion un archivo
+      JFileChooser jFileChooser = new JFileChooser();
+      //Creamos un filtro para que solo nos muestre archivos .pdf y .docx
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos pdf y docx", "pdf", "docx");
+      //Le pasamos el filtro
+      jFileChooser.setFileFilter(filter);
+      
+      int respuesta = jFileChooser.showOpenDialog(this);
+      if(respuesta == JFileChooser.APPROVE_OPTION){
+         //Nombre del archivo
+         nombreFormato = jFileChooser.getSelectedFile().getName();
+         if(nombreFormato.lastIndexOf(".pdf") > 0 || nombreFormato.lastIndexOf(".docx") > 0){
+            //Ruta del archivo
+            ruta = jFileChooser.getSelectedFile().getPath();
+            lblNomF.setText(nombreFormato);
+         }  else {
+            nombreFormato = "";
+            lblNomF.setText("");
+            JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
+         }
+      }
+   }//GEN-LAST:event_btnSlectArchFormatoActionPerformed
+
+   private void btnSlectArchPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlectArchPAActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_btnSlectArchPAActionPerformed
 
    /**
     * @param args the command line arguments
@@ -78,5 +185,13 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton btnAnalizar;
+   private javax.swing.JButton btnSlectArchFormato;
+   private javax.swing.JButton btnSlectArchPA;
+   private javax.swing.JLabel jLabel1;
+   private javax.swing.JLabel jLabel2;
+   private javax.swing.JLabel jLabel3;
+   private javax.swing.JLabel lblNomF;
+   private javax.swing.JLabel lblNomPA;
    // End of variables declaration//GEN-END:variables
 }
