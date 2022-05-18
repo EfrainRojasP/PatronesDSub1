@@ -46,18 +46,42 @@ public class Test {
        */
 
       //WORD
-      FormatoWord formatoWord = new FormatoWord("Formato.docx");
+      /*FormatoWord formatoWord = new FormatoWord("Formato.docx");
       formatoWord.leerFormato();
       System.out.println(formatoWord.getBookmarkSeccion());
-
+      
       ProductoWord productoWord = new ProductoWord("holin2.docx", formatoWord.getBookmarkSeccion());
       productoWord.leerPA();
       productoWord.construirSecciones();
       System.out.println(productoWord.getBookmarkSeccionFormato());
 
-      ReportePDF rpdf = new ReportePDF(productoWord.getBookmarkSeccionFormato());
-      rpdf.construirReporte();
+      ReportePDF rpdf = new ReportePDF(productoWord.getBookmarkSeccionFormato(), "holin2.docx");
+      rpdf.construirReporte();*/
 
+      //PDF - WORD
+      /*FormatoPDF p = new FormatoPDF("Formato.pdf");
+      p.leerFormato();
+      p.array();
+      
+      ProductoWord productoWord = new ProductoWord("holin2.docx", p.getBookmarkSeccion());
+      productoWord.leerPA();
+      productoWord.construirSecciones();
+      System.out.println(productoWord.getBookmarkSeccionFormato());
+      
+      ReportePDF rpdf = new ReportePDF(productoWord.getBookmarkSeccionFormato(), "holin2.docx");
+      rpdf.construirReporte();*/
+      
+      //WORD - PDF
+      FormatoWord formatoWord = new FormatoWord("Formato.docx");
+      formatoWord.leerFormato();
+      
+      ProductoPDF productoPDF = new ProductoPDF("holin2.pdf", formatoWord.getBookmarkSeccion());
+      productoPDF.leerPA();
+      productoPDF.construirSecciones();
+      
+      ReportePDF rpdf = new ReportePDF(productoPDF.getBookmarkSeccionFormato(), "holin2.docx");
+      rpdf.construirReporte();
+      
    }
 
 }
