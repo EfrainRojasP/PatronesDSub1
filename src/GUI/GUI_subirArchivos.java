@@ -22,7 +22,7 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    String rutaFormato = "";
    String nombrePA = "";
    String nombreFormato = "";
-   String nombreReporte = "";
+   public static String nombreReporte = "";
    
    boolean isPDFF;
    boolean isPDFPA;
@@ -203,8 +203,14 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, "No se seleciono el producto academico");
       } else {
          construirReporte = new ConstruirReporte();
+         construirReporte.setIsPDFFormato(isPDFF);
+         construirReporte.setNombreFormato(nombreFormato);
+         construirReporte.setIsPDFPA(isPDFPA);
+         construirReporte.setNombrePA(nombrePA);
          
-        GUI_DescargarArchivo dA = new GUI_DescargarArchivo();
+         nombreReporte = construirReporte.nombreReporte();
+         System.out.println(nombreReporte);
+         GUI_DescargarArchivo dA = new GUI_DescargarArchivo();
          dA.setVisible(true);
          this.dispose();
          //JOptionPane.showMessageDialog(null, "Hola :D");
