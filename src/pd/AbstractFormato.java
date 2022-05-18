@@ -24,4 +24,15 @@ public abstract class AbstractFormato {
    public void setBookmarkSeccion(ArrayList<Seccion> formatoSeccion){
       this.bookmarkSeccion = bookmarkSeccion;
    }
+
+   public String getNombreFormato() {
+      return nombreFormato;
+   }
+
+   public void setNombreFormato(String nombreFormato) {
+      this.nombreFormato = nombreFormato;
+   }
+   
+   
+   
 }
