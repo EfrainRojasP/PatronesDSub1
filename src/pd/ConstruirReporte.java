@@ -44,13 +44,13 @@ public class ConstruirReporte {
       }
    }
 
-   public void generarReporteAPartirPDF(){
+   private void generarReporteAPartirPDF(){
       reportePDF = 
                  new ReportePDF(managerPA.getBookMarksPDF(), nombrePA);
          reportePDF.construirReporte();
    }
    
-   public void generarReporteAPartirWord(){
+   private void generarReporteAPartirWord(){
       reportePDF = 
                  new ReportePDF(managerPA.getBookMarksWord(), nombrePA);
          reportePDF.construirReporte();
