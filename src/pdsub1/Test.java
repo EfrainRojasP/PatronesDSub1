@@ -6,6 +6,7 @@ package pdsub1;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.ConstruirReporte;
 import pd.FormatoPDF;
 import pd.FormatoWord;
 import pd.ManagerFormato;
@@ -85,14 +86,15 @@ public class Test {
       rpdf.construirReporte();*/
       
       //ManagerFormato
-      ManagerFormato managerFormato = new ManagerFormato();
+      /*ManagerFormato managerFormato = new ManagerFormato();
       managerFormato.setNombreFormato("Formato.docx");
       managerFormato.leerFormatoWord();
-      System.out.println("Formato\n" + managerFormato.getFormatoWord().getBookmarkSeccion() + "\nFin");
+      ArrayList<Seccion> d = managerFormato.getBookMarksWord();
+      System.out.println("Formato\n" + managerFormato.getBookMarksWord() + "\nFin");
      
       System.out.println("\nPA\n");
       ManagerProductoAcademico mpa = new ManagerProductoAcademico("holin2.pdf");
-      mpa.leerProductoAcademicoPDF(managerFormato.getFormatoWord().getBookmarkSeccion());
+      mpa.leerProductoAcademicoPDF(managerFormato.getBookMarksWord());
       System.out.println("Uno\n" + mpa.getProductoPDF().getBookmarkSeccionFormato() + "FIN\n");
       
       ReportePDF rpdf = new ReportePDF(mpa.getProductoPDF().getBookmarkSeccionFormato(), "holin2.pdf");
@@ -111,7 +113,16 @@ public class Test {
       System.out.println("Dos\n" + mpa1.getProductoWord().getBookmarkSeccionFormato() + "FIN\n");
       
       ReportePDF rpdf1 = new ReportePDF(mpa1.getProductoWord().getBookmarkSeccionFormato(), "PA.docx");
-      rpdf1.construirReporte();
+      rpdf1.construirReporte();*/
+      
+      //COnstruir reporte
+      ConstruirReporte cr = new ConstruirReporte();
+      cr.setIsPDFFormato(true);
+      cr.setNombreFormato("holin2.pdf");
+      cr.setIsPDFPA(false);
+      cr.setNombrePA("PA.docx");
+      cr.generarRorte();
+      
       
    }
 
