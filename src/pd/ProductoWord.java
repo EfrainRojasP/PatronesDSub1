@@ -20,20 +20,17 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class ProductoWord {
-
-   private String nombrePA;
-   private ArrayList<Seccion> bookmarkSeccionFormato;
-   private ArrayList<String> bookmarkSeccionPA;
+public class ProductoWord extends AbstractProductoAcademico{
 
    public ProductoWord(String nombrePA, ArrayList<Seccion> bookmarkSeccionFormato) {
       this.nombrePA = nombrePA;
       this.bookmarkSeccionFormato = bookmarkSeccionFormato;
       bookmarkSeccionPA = new ArrayList<>();
-      System.out.println(this.bookmarkSeccionFormato.size());
+      //System.out.println(this.bookmarkSeccionFormato.size());
    }
 
-   public ArrayList<String> leerPA() throws IOException {
+   @Override
+   public ArrayList<String> leerPA(){
       try {
          XWPFDocument documento = new XWPFDocument(new FileInputStream(nombrePA));
          XWPFWordExtractor xwpfWordExtractor = new XWPFWordExtractor(documento);
@@ -51,10 +48,13 @@ public class ProductoWord {
          return this.bookmarkSeccionPA;
       } catch (FileNotFoundException ex) {
          Logger.getLogger(ProductoWord.class.getName()).log(Level.SEVERE, null, ex);
+      } catch (IOException ex) {
+         Logger.getLogger(ProductoWord.class.getName()).log(Level.SEVERE, null, ex);
       }
       return null;
    }
 
+   @Override
    public void construirSecciones() {
       try {
          XWPFDocument documento = new XWPFDocument(new FileInputStream(nombrePA));
@@ -92,21 +92,6 @@ public class ProductoWord {
       } catch (IOException ex) {
          Logger.getLogger(ProductoWord.class.getName()).log(Level.SEVERE, null, ex);
       }
-   }
-
-   public Seccion findSeccion(String name) {
-      for (Seccion seccion
-              : bookmarkSeccionFormato) {
-         if (name.equals(seccion.getNombre())) {
-            seccion.setCumplido(true);
-            return seccion;
-         }
-      }
-      return null;
-   }
-
-   public ArrayList<Seccion> getBookmarkSeccionFormato() {
-      return bookmarkSeccionFormato;
    }
    
 }
