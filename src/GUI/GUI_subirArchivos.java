@@ -17,6 +17,12 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    /**
     * Creates new form GUI_subirArchivos
     */
+   
+   String rutaPA = "";
+   String rutaFormato = "";
+   String nombrePA = "";
+   String nombreFormato = "";
+   
    public GUI_subirArchivos() {
       initComponents();
    }
@@ -48,6 +54,11 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
       jLabel3.setText("Producto academico:");
 
       btnAnalizar.setText("Analizar");
+      btnAnalizar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnAnalizarActionPerformed(evt);
+         }
+      });
 
       btnSlectArchFormato.setText("Seleccionar Archivo");
       btnSlectArchFormato.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +131,6 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
 
    private void btnSlectArchFormatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlectArchFormatoActionPerformed
       // TODO add your handling code here:
-      String ruta = "";
-      String nombreFormato = "";
       //Creamos un JFileChooser para seleccion un archivo
       JFileChooser jFileChooser = new JFileChooser();
       //Creamos un filtro para que solo nos muestre archivos .pdf y .docx
@@ -135,10 +144,11 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          nombreFormato = jFileChooser.getSelectedFile().getName();
          if (nombreFormato.lastIndexOf(".pdf") > 0 || nombreFormato.lastIndexOf(".docx") > 0) {
             //Ruta del archivo
-            ruta = jFileChooser.getSelectedFile().getPath();
+            rutaFormato = jFileChooser.getSelectedFile().getPath();
             lblNomF.setText(nombreFormato);
          } else {
             nombreFormato = "";
+            rutaFormato = "";
             lblNomF.setText("");
             JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
          }
@@ -147,8 +157,6 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
 
    private void btnSlectArchPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlectArchPAActionPerformed
       // TODO add your handling code here:
-      String ruta = "";
-      String nombrePA = "";
       //Creamos un JFileChooser para seleccion un archivo
       JFileChooser jFileChooser = new JFileChooser();
       //Creamos un filtro para que solo nos muestre archivos .pdf y .docx
@@ -162,15 +170,21 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          nombrePA = jFileChooser.getSelectedFile().getName();
          if (nombrePA.lastIndexOf(".pdf") > 0 || nombrePA.lastIndexOf(".docx") > 0) {
             //Ruta del archivo
-            ruta = jFileChooser.getSelectedFile().getPath();
+            rutaPA = jFileChooser.getSelectedFile().getPath();
             lblNomPA.setText(nombrePA);
          } else {
             nombrePA = "";
+            rutaPA = "";
             lblNomF.setText("");
             JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
          }
       }
    }//GEN-LAST:event_btnSlectArchPAActionPerformed
+
+   private void btnAnalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizarActionPerformed
+      // TODO add your handling code here:
+      System.out.println("NF: " + nombreFormato + " " + "NPA: " + nombrePA);
+   }//GEN-LAST:event_btnAnalizarActionPerformed
 
    /**
     * @param args the command line arguments
