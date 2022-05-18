@@ -4,6 +4,8 @@
  */
 package pd;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
@@ -54,5 +56,12 @@ public class ManagerFormato {
       this.formatoWord = formatoWord;
    }
    
+   public ArrayList<Seccion> getBookMarksPDF(){
+      return formatoPDF.getBookmarkSeccion();
+   }
+   
+   public ArrayList<Seccion> getBookMarksWord(){
+      return formatoWord.getBookmarkSeccion();
+   }
    
 }
