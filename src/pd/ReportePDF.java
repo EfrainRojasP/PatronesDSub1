@@ -86,7 +86,7 @@ public class ReportePDF implements AbstractRepote{
          nombrePDF += ".pdf";
          return nombrePDF;
       } else {
-         nombrePDF = "ReporteCumplidos_".concat(nombrePDF);
+         nombrePDF = "ReporteCumplidos_".concat(nombrePA);
          return nombrePDF;
       }
    }
