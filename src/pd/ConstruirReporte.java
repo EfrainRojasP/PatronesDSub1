@@ -30,16 +30,8 @@ public class ConstruirReporte {
       managerPA = new ManagerProductoAcademico(nombrePA);
       if(isPDFFormato){
          managerFormato.leerFormatoPDF();
-         
-         reportePDF = 
-                 new ReportePDF(managerPA.getBookMarksPDF(), nombrePA);
-         reportePDF.construirReporte();
       } else {
          managerFormato.leerFormatoWord();
-         
-         reportePDF = 
-                 new ReportePDF(managerPA.getBookMarksWord(), nombrePA);
-         reportePDF.construirReporte();
       }
       if(isPDFPA){
          managerPA.
@@ -50,6 +42,17 @@ public class ConstruirReporte {
       }
    }
 
+   public void generarReporteAPartirPDF(){
+      reportePDF = 
+                 new ReportePDF(managerPA.getBookMarksPDF(), nombrePA);
+         reportePDF.construirReporte();
+   }
+   
+   public void generarReporteAPartirWord(){
+      reportePDF = 
+                 new ReportePDF(managerPA.getBookMarksWord(), nombrePA);
+         reportePDF.construirReporte();;
+   }
    
    public boolean isIsPDFFormato() {
       return isPDFFormato;
