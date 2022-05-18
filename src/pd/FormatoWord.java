@@ -21,7 +21,11 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
  */
 public class FormatoWord extends AbstractFormato {
 
+   public FormatoWord() {
+   }
 
+   
+   
    public FormatoWord(String nombreFormato) {
       this.nombreFormato = nombreFormato;
       bookmarkSeccion = new ArrayList<>();
