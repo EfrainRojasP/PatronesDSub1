@@ -21,6 +21,7 @@ public class ReportePDF implements AbstractRepote{
    //private Seccion seccion;
    private ArrayList<Seccion> seccionPA;
    private String nombrePA;
+   private String rutaDestino;
 
    public ReportePDF() {
    }
@@ -29,8 +30,13 @@ public class ReportePDF implements AbstractRepote{
       this.seccionPA = seccionPA;
       this.nombrePA = nombrePA;
    }
-   
-   
+
+   public ReportePDF(ArrayList<Seccion> seccionPA, String nombrePA, String rutaDestino) {
+      this.seccionPA = seccionPA;
+      this.nombrePA = nombrePA;
+      this.rutaDestino = rutaDestino;
+   }
+
    public void comparacion(){
       for(Seccion seccion : seccionPA){
          if(seccion.isCumplido() && seccion.getNumPalabras() == 0){
@@ -42,7 +48,9 @@ public class ReportePDF implements AbstractRepote{
    @Override
    public void construirReporte(){
       try {
-         String file = nombreReporte();
+         //String file = nombreReporte();
+         String file = rutaDestino + "/";
+         file += nombrePA;
          
          
          //1. Creacion del PDF
