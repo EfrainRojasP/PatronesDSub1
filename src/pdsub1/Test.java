@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import pd.FormatoPDF;
 import pd.FormatoWord;
 import pd.ManagerFormato;
+import pd.ManagerProductoAcademico;
 import pd.ProductoPDF;
 import pd.ProductoWord;
 import pd.ReportePDF;
@@ -87,11 +88,30 @@ public class Test {
       ManagerFormato managerFormato = new ManagerFormato();
       managerFormato.setNombreFormato("Formato.docx");
       managerFormato.leerFormatoWord();
-      System.out.println("Uno\n" + managerFormato.getFormatoWord().getBookmarkSeccion() + "\nFin");
+      System.out.println("Formato\n" + managerFormato.getFormatoWord().getBookmarkSeccion() + "\nFin");
+     
+      System.out.println("\nPA\n");
+      ManagerProductoAcademico mpa = new ManagerProductoAcademico("holin2.pdf");
+      mpa.leerProductoAcademicoPDF(managerFormato.getFormatoWord().getBookmarkSeccion());
+      System.out.println("Uno\n" + mpa.getProductoPDF().getBookmarkSeccionFormato() + "FIN\n");
+      
+      ReportePDF rpdf = new ReportePDF(mpa.getProductoPDF().getBookmarkSeccionFormato(), "holin2.pdf");
+      rpdf.construirReporte();
+      
+      System.out.println("\n\n\n-------------------------");
       
       ManagerFormato mf = new ManagerFormato("holin2.pdf");
       mf.leerFormatoPDF();
-      System.out.println("Dos\n" + mf.getFormatoPDF().getBookmarkSeccion() + "FIN\n");
+      System.out.println("Formato\n" + mf.getFormatoPDF().getBookmarkSeccion() + "FIN\n");
+      
+      System.out.println("\nPA\n");
+      
+      ManagerProductoAcademico mpa1 = new ManagerProductoAcademico("PA.docx");
+      mpa1.leerProductoAcademicoWord(mf.getFormatoPDF().getBookmarkSeccion());
+      System.out.println("Dos\n" + mpa1.getProductoWord().getBookmarkSeccionFormato() + "FIN\n");
+      
+      ReportePDF rpdf1 = new ReportePDF(mpa1.getProductoWord().getBookmarkSeccionFormato(), "PA.docx");
+      rpdf1.construirReporte();
       
    }
 
