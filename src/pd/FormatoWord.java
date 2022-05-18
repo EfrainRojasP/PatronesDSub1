@@ -19,7 +19,7 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class FormatoWord extends AbstracFormato {
+public class FormatoWord extends AbstractFormato {
 
 
    public FormatoWord(String nombreFormato) {

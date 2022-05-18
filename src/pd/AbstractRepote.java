@@ -8,6 +8,6 @@ package pd;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-interface AbstracRepote {
+interface AbstractRepote {
    public void construirReporte();
 }

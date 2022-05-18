@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public abstract class AbstracFormato {
+public abstract class AbstractFormato {
    
    String nombreFormato;
    ArrayList<Seccion> bookmarkSeccion;

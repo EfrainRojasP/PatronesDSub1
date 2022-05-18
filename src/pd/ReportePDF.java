@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class ReportePDF implements AbstracRepote{
+public class ReportePDF implements AbstractRepote{
    //private Seccion seccion;
    private ArrayList<Seccion> seccionPA;
    private String nombrePA;

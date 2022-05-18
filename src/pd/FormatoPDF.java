@@ -17,7 +17,7 @@ import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlin
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class FormatoPDF extends AbstracFormato {
+public class FormatoPDF extends AbstractFormato {
 
    private int id;
 
