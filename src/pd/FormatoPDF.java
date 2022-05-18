@@ -17,11 +17,8 @@ import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlin
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class FormatoPDF implements AbstracFormato {
+public class FormatoPDF extends AbstracFormato {
 
-   private String nombreFormato;
-   private ArrayList<Seccion> bookmarkSeccion;
-   private Seccion seccion;
    private int id;
 
    public FormatoPDF(String nombreFormato) {
@@ -58,17 +55,6 @@ public class FormatoPDF implements AbstracFormato {
          current = current.getNextSibling();
       }
    }
-   
-   @Override
-   public ArrayList<Seccion> getBookmarkSeccion() {
-      return bookmarkSeccion;
-   }
-
-   @Override
-   public void setBookmarkSeccion (ArrayList<Seccion> bookmarkSeccion) {
-      this.bookmarkSeccion = bookmarkSeccion;
-   }
-
 
    public void array(){
       System.out.println(" " + bookmarkSeccion.toString());
