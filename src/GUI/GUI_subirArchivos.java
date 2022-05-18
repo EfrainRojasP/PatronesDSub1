@@ -149,7 +149,7 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          } else {
             nombreFormato = "";
             rutaFormato = "";
-            lblNomF.setText("");
+            lblNomF.setText("Seleccione un arhivo pdf o docx");
             JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
          }
       }
@@ -175,7 +175,7 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          } else {
             nombrePA = "";
             rutaPA = "";
-            lblNomF.setText("");
+            lblNomF.setText("Seleccione un arhivo pdf o docx");
             JOptionPane.showMessageDialog(null, "Solo se permiten archivos pdf y docx");
          }
       }
@@ -184,6 +184,17 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    private void btnAnalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizarActionPerformed
       // TODO add your handling code here:
       System.out.println("NF: " + nombreFormato + " " + "NPA: " + nombrePA);
+      System.out.println("RF: " + rutaFormato + " " + "RPA: " + rutaPA);
+      System.out.println("NF: " + nombreFormato.length() + " " + "NPA: " + nombrePA.length());
+      if(nombreFormato.length() == 0 &&  nombrePA.length() == 0){
+         JOptionPane.showMessageDialog(null, "No se seleciono ningun archivo");
+      } else if (nombreFormato.length() == 0 ){
+         JOptionPane.showMessageDialog(null, "No se seleciono el formato");
+      } else if (nombrePA.length() == 0){
+         JOptionPane.showMessageDialog(null, "No se seleciono el producto academico");
+      } else {
+         JOptionPane.showMessageDialog(null, "Hola :D");
+      }
    }//GEN-LAST:event_btnAnalizarActionPerformed
 
    /**
