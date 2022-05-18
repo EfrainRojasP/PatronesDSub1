@@ -20,6 +20,7 @@ public class ConstruirReporte {
    private boolean isPDFPA;
    private String nombreFormato;
    private String nombrePA;
+   private String nombreReporte = "";
    private String ruta;
    
    public ConstruirReporte(){
@@ -42,31 +43,31 @@ public class ConstruirReporte {
       if(isPDFFormato == true && isPDFPA == true){
          managerPA.
                  leerProductoAcademicoPDF(managerFormato.getBookMarksPDF());
-         generarReporteAPartirPDF();
+         //generarReporteAPartirPDF();
       } else if(isPDFFormato == false && isPDFPA == true){
          managerPA.
                  leerProductoAcademicoPDF(managerFormato.getBookMarksWord());
-         generarReporteAPartirPDF();
+         //generarReporteAPartirPDF();
       } else if(isPDFFormato == true && isPDFPA == false){
          managerPA.
                  leerProductoAcademicoWord(managerFormato.getBookMarksPDF());
-         generarReporteAPartirWord();
+         //generarReporteAPartirWord();
       } else if (isPDFFormato == false && isPDFPA == false){
          managerPA
                  .leerProductoAcademicoWord(managerFormato.getBookMarksWord());
-         generarReporteAPartirWord();
+         //generarReporteAPartirWord();
       }
    }
 
    private void generarReporteAPartirPDF(){
       reportePDF = 
-                 new ReportePDF(managerPA.getBookMarksPDF(), nombrePA);
+                 new ReportePDF(managerPA.getBookMarksPDF(), nombreReporte, ruta);
          reportePDF.construirReporte();
    }
    
    private void generarReporteAPartirWord(){
       reportePDF = 
-                 new ReportePDF(managerPA.getBookMarksWord(), nombrePA);
+                 new ReportePDF(managerPA.getBookMarksWord(), nombreReporte, ruta);
          reportePDF.construirReporte();
    }
    
@@ -109,17 +110,24 @@ public class ConstruirReporte {
    public void setRuta(String ruta) {
       this.ruta = ruta;
    }
+
+   public String getNombreReporte() {
+      return nombreReporte;
+   }
+
+   public void setNombreReporte(String nombreReporte) {
+      this.nombreReporte = nombreReporte;
+   }
    
    public String nombreReporte(){
-      String nombrePDF = "";
       if(nombrePA.lastIndexOf(".docx") > 0){
-         nombrePDF = "ReporteCumplidos_".concat(nombrePA.substring(0, 
+         nombreReporte = "ReporteCumplidos_".concat(nombrePA.substring(0, 
                  nombrePA.lastIndexOf(".docx")));
-         nombrePDF += ".pdf";
-         return nombrePDF;
+         nombreReporte += ".pdf";
+         return nombreReporte;
       } else {
-         nombrePDF = "ReporteCumplidos_".concat(nombrePA);
-         return nombrePDF;
+         nombreReporte = "ReporteCumplidos_".concat(nombrePA);
+         return nombreReporte;
       }
    }
    
