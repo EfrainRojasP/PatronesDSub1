@@ -20,6 +20,7 @@ public class ConstruirReporte {
    private boolean isPDFPA;
    private String nombreFormato;
    private String nombrePA;
+   private String ruta;
    
    public ConstruirReporte(){
       
@@ -98,7 +99,26 @@ public class ConstruirReporte {
    public void setNombrePA(String nombrePA) {
       this.nombrePA = nombrePA;
    }
+
+   public String getRuta() {
+      return ruta;
+   }
+
+   public void setRuta(String ruta) {
+      this.ruta = ruta;
+   }
    
-   
+   public String nombreReporte(){
+      String nombrePDF = "";
+      if(nombrePA.lastIndexOf(".docx") > 0){
+         nombrePDF = "ReporteCumplidos_".concat(nombrePA.substring(0, 
+                 nombrePA.lastIndexOf(".docx")));
+         nombrePDF += ".pdf";
+         return nombrePDF;
+      } else {
+         nombrePDF = "ReporteCumplidos_".concat(nombrePA);
+         return nombrePDF;
+      }
+   }
    
 }
