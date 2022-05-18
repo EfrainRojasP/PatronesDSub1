@@ -53,7 +53,7 @@ public class FormatoPDF extends AbstractFormato {
          ++id;
          seccion = new Seccion(id, current.getTitle());
          bookmarkSeccion.add(seccion);
-         System.out.println(id + " " + current.getTitle());
+         //System.out.println(id + " " + current.getTitle());
          formatoSecciones(document, current);
          current = current.getNextSibling();
       }
