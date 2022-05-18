@@ -4,6 +4,8 @@
  */
 package pd;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
@@ -25,7 +27,7 @@ public class ConstruirReporte {
   
    
    
-   public final void generarRorte(){
+   public void generarRorte(){
       managerFormato = new ManagerFormato(nombreFormato);
       managerPA = new ManagerProductoAcademico(nombrePA);
       if(isPDFFormato){
@@ -33,13 +35,22 @@ public class ConstruirReporte {
       } else {
          managerFormato.leerFormatoWord();
       }
-      if(isPDFPA){
+      
+      if(isPDFFormato == true && isPDFPA == true){
          managerPA.
                  leerProductoAcademicoPDF(managerFormato.getBookMarksPDF());
          generarReporteAPartirPDF();
-      } else {
+      } else if(isPDFFormato == false && isPDFPA == true){
          managerPA.
-                 leerProductoAcademicoWord(managerFormato.getBookMarksWord());
+                 leerProductoAcademicoPDF(managerFormato.getBookMarksWord());
+         generarReporteAPartirPDF();
+      } else if(isPDFFormato == true && isPDFPA == false){
+         managerPA.
+                 leerProductoAcademicoWord(managerFormato.getBookMarksPDF());
+         generarReporteAPartirWord();
+      } else if (isPDFFormato == false && isPDFPA == false){
+         managerPA
+                 .leerProductoAcademicoWord(managerFormato.getBookMarksWord());
          generarReporteAPartirWord();
       }
    }
