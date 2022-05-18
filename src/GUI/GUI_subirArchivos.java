@@ -7,6 +7,7 @@ package GUI;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import pd.ConstruirReporte;
 
 /**
  *
@@ -21,7 +22,13 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
    String rutaFormato = "";
    String nombrePA = "";
    String nombreFormato = "";
+   String nombreReporte = "";
+   
+   boolean isPDFF;
+   boolean isPDFPA;
 
+   ConstruirReporte construirReporte;
+   
    public GUI_subirArchivos() {
       initComponents();
    }
@@ -142,6 +149,7 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          //Nombre del archivo
          nombreFormato = jFileChooser.getSelectedFile().getName();
          if (nombreFormato.lastIndexOf(".pdf") > 0 || nombreFormato.lastIndexOf(".docx") > 0) {
+            isPDFF = (nombreFormato.lastIndexOf(".pdf") > 0);
             //Ruta del archivo
             rutaFormato = jFileChooser.getSelectedFile().getPath();
             lblNomF.setText(nombreFormato);
@@ -169,6 +177,7 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
          nombrePA = jFileChooser.getSelectedFile().getName();
          if (nombrePA.lastIndexOf(".pdf") > 0 || nombrePA.lastIndexOf(".docx") > 0) {
             //Ruta del archivo
+            isPDFPA = (nombrePA.lastIndexOf(".pdf") > 0);
             rutaPA = jFileChooser.getSelectedFile().getPath();
             lblNomPA.setText(nombrePA);
          } else {
@@ -184,6 +193,7 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
       // TODO add your handling code here:
       System.out.println("NF: " + nombreFormato + " " + "NPA: " + nombrePA);
       System.out.println("RF: " + rutaFormato + " " + "RPA: " + rutaPA);
+      System.out.println("BF: " + isPDFF + " " + "BPA: " + isPDFPA);
       System.out.println("NF: " + nombreFormato.length() + " " + "NPA: " + nombrePA.length());
       if (nombreFormato.length() == 0 && nombrePA.length() == 0) {
          JOptionPane.showMessageDialog(null, "No se seleciono ningun archivo");
@@ -192,7 +202,9 @@ public class GUI_subirArchivos extends javax.swing.JFrame {
       } else if (nombrePA.length() == 0) {
          JOptionPane.showMessageDialog(null, "No se seleciono el producto academico");
       } else {
-         GUI_DescargarArchivo dA = new GUI_DescargarArchivo();
+         construirReporte = new ConstruirReporte();
+         
+        GUI_DescargarArchivo dA = new GUI_DescargarArchivo();
          dA.setVisible(true);
          this.dispose();
          //JOptionPane.showMessageDialog(null, "Hola :D");
