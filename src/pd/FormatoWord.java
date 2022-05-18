@@ -19,11 +19,8 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-public class FormatoWord implements AbstracFormato {
+public class FormatoWord extends AbstracFormato {
 
-   private String nombreFormato;
-   private ArrayList<Seccion> bookmarkSeccion;
-   private Seccion seccion;
 
    public FormatoWord(String nombreFormato) {
       this.nombreFormato = nombreFormato;
@@ -53,19 +50,9 @@ public class FormatoWord implements AbstracFormato {
       } catch (FileNotFoundException ex) {
          Logger.getLogger(FormatoWord.class.getName()).log(Level.SEVERE, null, ex);
       } catch (IOException ex) {
-         Logger.getLogger(FormatoWord.class.getName()).log(Level.SEVERE, null, ex);
+         System.err.println("Error al leer o escribir en el archivo con la ruta especificada");
       }
       return null;
    }
-
-   @Override
-   public ArrayList<Seccion> getBookmarkSeccion() {
-      return bookmarkSeccion;
-   }
-
-   @Override
-   public void setBookmarkSeccion(ArrayList<Seccion> formatoSeccion) {
-      this.bookmarkSeccion = bookmarkSeccion;
-   }
-
+   
 }
