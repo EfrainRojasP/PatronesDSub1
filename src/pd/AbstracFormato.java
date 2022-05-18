@@ -10,8 +10,18 @@ import java.util.ArrayList;
  *
  * @author Rojas Piña Efrain Ulises <al2172001457@azc.uam.mx>
  */
-interface AbstracFormato {
-   public ArrayList<Seccion> leerFormato();
-   public ArrayList<Seccion> getBookmarkSeccion();
-   public void setBookmarkSeccion(ArrayList<Seccion> formatoSeccion);
+public abstract class AbstracFormato {
+   
+   String nombreFormato;
+   ArrayList<Seccion> bookmarkSeccion;
+   Seccion seccion;
+   
+   public abstract ArrayList<Seccion> leerFormato();
+   
+   public ArrayList<Seccion> getBookmarkSeccion(){
+      return bookmarkSeccion;
+   }
+   public void setBookmarkSeccion(ArrayList<Seccion> formatoSeccion){
+      this.bookmarkSeccion = bookmarkSeccion;
+   }
 }
