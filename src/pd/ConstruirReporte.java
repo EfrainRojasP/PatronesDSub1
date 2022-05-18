@@ -36,9 +36,11 @@ public class ConstruirReporte {
       if(isPDFPA){
          managerPA.
                  leerProductoAcademicoPDF(managerFormato.getBookMarksPDF());
+         generarReporteAPartirPDF();
       } else {
          managerPA.
                  leerProductoAcademicoWord(managerFormato.getBookMarksWord());
+         generarReporteAPartirWord();
       }
    }
 
@@ -51,7 +53,7 @@ public class ConstruirReporte {
    public void generarReporteAPartirWord(){
       reportePDF = 
                  new ReportePDF(managerPA.getBookMarksWord(), nombrePA);
-         reportePDF.construirReporte();;
+         reportePDF.construirReporte();
    }
    
    public boolean isIsPDFFormato() {
