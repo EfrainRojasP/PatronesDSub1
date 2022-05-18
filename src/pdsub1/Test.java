@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import pd.FormatoPDF;
 import pd.FormatoWord;
+import pd.ManagerFormato;
 import pd.ProductoPDF;
 import pd.ProductoWord;
 import pd.ReportePDF;
@@ -72,7 +73,7 @@ public class Test {
       rpdf.construirReporte();*/
       
       //WORD - PDF
-      FormatoWord formatoWord = new FormatoWord("Formato.docx");
+      /*FormatoWord formatoWord = new FormatoWord("Formato.docx");
       formatoWord.leerFormato();
       
       ProductoPDF productoPDF = new ProductoPDF("holin2.pdf", formatoWord.getBookmarkSeccion());
@@ -80,7 +81,17 @@ public class Test {
       productoPDF.construirSecciones();
       
       ReportePDF rpdf = new ReportePDF(productoPDF.getBookmarkSeccionFormato(), "holin2.docx");
-      rpdf.construirReporte();
+      rpdf.construirReporte();*/
+      
+      //ManagerFormato
+      ManagerFormato managerFormato = new ManagerFormato();
+      managerFormato.setNombreFormato("Formato.docx");
+      managerFormato.leerFormatoWord();
+      System.out.println("Uno\n" + managerFormato.getFormatoWord().getBookmarkSeccion() + "\nFin");
+      
+      ManagerFormato mf = new ManagerFormato("holin2.pdf");
+      mf.leerFormatoPDF();
+      System.out.println("Dos\n" + mf.getFormatoPDF().getBookmarkSeccion() + "FIN\n");
       
    }
 
